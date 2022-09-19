@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
-    @PersistenceContext(type=javax.persistence.PersistenceContextType.EXTENDED)
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Override
