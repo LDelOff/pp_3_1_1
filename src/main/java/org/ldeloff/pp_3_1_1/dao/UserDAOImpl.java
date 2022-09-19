@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
-    @PersistenceContext
+    @PersistenceContext(type=javax.persistence.PersistenceContextType.EXTENDED)
     private EntityManager entityManager;
 
     @Override
@@ -41,70 +41,5 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User getById(long id) {
         return entityManager.find(User.class, id);
-    }
-
-    @Override
-    public Iterable<User> findAll(Sort sort) {
-        return null;
-    }
-
-    @Override
-    public Page<User> findAll(Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public <S extends User> S save(S s) {
-        return null;
-    }
-
-    @Override
-    public <S extends User> Iterable<S> saveAll(Iterable<S> iterable) {
-        return null;
-    }
-
-    @Override
-    public Optional<User> findById(Long aLong) {
-        return Optional.empty();
-    }
-
-    @Override
-    public boolean existsById(Long aLong) {
-        return false;
-    }
-
-    @Override
-    public Iterable<User> findAll() {
-        return null;
-    }
-
-    @Override
-    public Iterable<User> findAllById(Iterable<Long> iterable) {
-        return null;
-    }
-
-    @Override
-    public long count() {
-        return 0;
-    }
-
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-
-    @Override
-    public void delete(User user) {
-
-    }
-
-    @Override
-    public void deleteAll(Iterable<? extends User> iterable) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
     }
 }
