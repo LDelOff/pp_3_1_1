@@ -1,7 +1,6 @@
 package org.ldeloff.pp_3_1_1.service;
 
 import org.ldeloff.pp_3_1_1.dao.UserDAO;
-import org.ldeloff.pp_3_1_1.dao.UserDAOImpl;
 import org.ldeloff.pp_3_1_1.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +10,11 @@ import java.util.List;
 @Transactional
 @Service
 public class UserServiceImpl implements UserService{
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserDAO userDAO;
+
+    public UserServiceImpl(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     @Override
     public List<User> allUser() {
