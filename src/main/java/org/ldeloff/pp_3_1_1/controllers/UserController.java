@@ -20,19 +20,19 @@ public class UserController {
     @GetMapping()
     public String allUser(Model model) {
         model.addAttribute("users", userService.allUser());
-        return "users/allUsers";
+        return "allUsers";
     }
 
     @GetMapping("/{id}")
     public String getById(@PathVariable("id") long id, Model model) {
         model.addAttribute("person", userService.getById(id));
-        return "users/getById";
+        return "getById";
     }
 
     @GetMapping("/new")
     public String newPerson(Model model){
         model.addAttribute("person", new User());
-        return "users/new";
+        return "new";
     }
 
     @PostMapping()
@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("/{id}/edit")
     public String edit(Model model,@PathVariable("id") long id) {
         model.addAttribute("person", userService.getById(id));
-        return "users/edit";
+        return "edit";
     }
 
     @PatchMapping("/{id}")
